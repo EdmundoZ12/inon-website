@@ -1,0 +1,167 @@
+// Animaciones específicas para Services
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
+
+// Estilos especiales para las tarjetas de servicios
+.service-card {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+
+    .card {
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+.primary-card {
+  .card {
+    border-top: 4px solid theme('colors.primary.500');
+  }
+}
+
+.accent-card {
+  .card {
+    border-top: 4px solid theme('colors.accent.500');
+  }
+}
+
+// Efectos para el proceso
+.process-timeline {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, theme('colors.primary.500'), theme('colors.accent.500'));
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+}
+
+.process-step {
+  position: relative;
+  z-index: 2;
+
+  .step-circle {
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+    }
+  }
+}
+
+// Animación de aparición para las tecnologías
+.tech-tag {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Efecto de brillantez para las tarjetas destacadas
+.highlight-card {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s;
+    opacity: 0;
+  }
+
+  &:hover::before {
+    animation: shine 1.5s ease-in-out;
+  }
+}
+
+@keyframes shine {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+// Efectos para los iconos de servicios
+.service-icon {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+// Gradiente animado para precios
+.price-gradient {
+  background: linear-gradient(-45deg, #2563eb, #06b6d4, #2563eb, #1e40af);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Responsive design
+@media (max-width: 1024px) {
+  .process-timeline::before {
+    display: none;
+  }
+
+  .process-step {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}

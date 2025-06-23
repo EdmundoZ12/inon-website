@@ -1,0 +1,164 @@
+<footer class="bg-gray-900 text-white">
+  <div class="container-custom">
+    <!-- Main Footer Content -->
+    <div class="py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Company Info -->
+        <div class="lg:col-span-2">
+          <!-- Logo -->
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="p-2 bg-primary-500 rounded-lg">
+              <lucide-angular
+                [img]="codeIcon"
+                class="w-8 h-8 text-white"
+              ></lucide-angular>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold gradient-text-white">
+                {{ companyInfo.name }}
+              </h3>
+              <p class="text-sm text-gray-400">Software Solutions</p>
+            </div>
+          </div>
+
+          <p class="text-gray-300 mb-6 max-w-md">
+            {{ companyInfo.description }}
+          </p>
+
+          <!-- Contact Info -->
+          <div class="space-y-3">
+            <div class="flex items-center space-x-3">
+              <lucide-angular
+                [img]="mailIcon"
+                class="w-5 h-5 text-primary-400"
+              ></lucide-angular>
+              <a
+                href="mailto:{{ companyInfo.email }}"
+                class="text-gray-300 hover:text-primary-400 transition-colors"
+              >
+                {{ companyInfo.email }}
+              </a>
+            </div>
+            <div class="flex items-center space-x-3">
+              <lucide-angular
+                [img]="phoneIcon"
+                class="w-5 h-5 text-primary-400"
+              ></lucide-angular>
+              <a
+                href="tel:{{ companyInfo.phone }}"
+                class="text-gray-300 hover:text-primary-400 transition-colors"
+              >
+                {{ companyInfo.phone }}
+              </a>
+            </div>
+            <div class="flex items-center space-x-3">
+              <lucide-angular
+                [img]="mapPinIcon"
+                class="w-5 h-5 text-primary-400"
+              ></lucide-angular>
+              <span class="text-gray-300">{{ companyInfo.address }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Enlaces Rápidos</h4>
+          <ul class="space-y-3">
+            <li *ngFor="let link of quickLinks">
+              <a
+                [routerLink]="link.path"
+                class="text-gray-300 hover:text-primary-400 transition-colors inline-flex items-center group"
+              >
+                <span class="group-hover:translate-x-1 transition-transform">{{
+                  link.label
+                }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h4 class="text-lg font-semibold mb-6">Servicios</h4>
+          <ul class="space-y-3">
+            <li *ngFor="let service of services">
+              <a
+                [routerLink]="service.path"
+                class="text-gray-300 hover:text-primary-400 transition-colors inline-flex items-center group"
+              >
+                <span class="group-hover:translate-x-1 transition-transform">{{
+                  service.label
+                }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-700"></div>
+
+    <!-- Bottom Footer -->
+    <div class="py-8">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+      >
+        <!-- Copyright -->
+        <div class="flex items-center space-x-2 text-gray-400">
+          <span
+            >© {{ currentYear }} {{ companyInfo.name }}. Todos los derechos
+            reservados.</span
+          >
+          <span class="hidden md:inline">|</span>
+          <span class="flex items-center space-x-1">
+            <span>Hecho con</span>
+            <lucide-angular
+              [img]="heartIcon"
+              class="w-4 h-4 text-red-500 animate-pulse"
+            ></lucide-angular>
+            <span>en Bolivia</span>
+          </span>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex items-center space-x-4">
+          <span class="text-gray-400 text-sm mr-2">Síguenos:</span>
+          <a
+            *ngFor="let social of socialLinks"
+            [href]="social.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="social.name"
+            [class]="
+              'text-gray-400 transition-colors p-2 rounded-lg hover:bg-gray-800 ' +
+              social.color
+            "
+          >
+            <lucide-angular
+              [img]="social.icon"
+              class="w-5 h-5"
+            ></lucide-angular>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button
+    (click)="scrollToTop()"
+    class="fixed bottom-8 right-8 bg-primary-500 hover:bg-primary-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 z-40"
+    aria-label="Volver arriba"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M5 10l7-7m0 0l7 7m-7-7v18"
+      ></path>
+    </svg>
+  </button>
+</footer>

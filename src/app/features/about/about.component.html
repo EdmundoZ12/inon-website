@@ -1,0 +1,257 @@
+<!-- Hero Section -->
+<section
+  class="relative bg-gradient-to-br from-primary-50 via-white to-accent-50 section-padding"
+>
+  <div class="container-custom">
+    <div class="text-center max-w-4xl mx-auto">
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-slide-up"
+      >
+        Conoce a <span class="gradient-text">iNeon</span>
+      </h1>
+      <p
+        class="text-xl md:text-2xl text-gray-600 mb-8 animate-slide-up animation-delay-300"
+      >
+        {{ companyInfo.slogan }}
+      </p>
+      <p
+        class="text-lg text-gray-700 leading-relaxed animate-slide-up animation-delay-600"
+      >
+        {{ companyInfo.description }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="section-padding bg-white">
+  <div class="container-custom">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Mission -->
+      <div class="card card-hover p-8 border-l-4 border-primary-500">
+        <div class="flex items-center mb-6">
+          <div class="p-3 bg-primary-100 rounded-lg mr-4">
+            <lucide-angular
+              [img]="targetIcon"
+              class="w-8 h-8 text-primary-600"
+            ></lucide-angular>
+          </div>
+          <h2 class="text-3xl font-bold text-gray-900">Nuestra Misión</h2>
+        </div>
+        <p class="text-gray-700 leading-relaxed text-lg">
+          {{ companyInfo.mission }}
+        </p>
+      </div>
+
+      <!-- Vision -->
+      <div class="card card-hover p-8 border-l-4 border-accent-500">
+        <div class="flex items-center mb-6">
+          <div class="p-3 bg-accent-100 rounded-lg mr-4">
+            <lucide-angular
+              [img]="eyeIcon"
+              class="w-8 h-8 text-accent-600"
+            ></lucide-angular>
+          </div>
+          <h2 class="text-3xl font-bold text-gray-900">Nuestra Visión</h2>
+        </div>
+        <p class="text-gray-700 leading-relaxed text-lg">
+          {{ companyInfo.vision }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Achievements Section -->
+<section class="section-padding bg-gray-50">
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Nuestros <span class="gradient-text">Logros</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Más de {{ calculateYearsInBusiness() }} años construyendo soluciones de
+        software excepcionales
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div
+        *ngFor="let achievement of achievements; trackBy: trackByAchievement"
+        class="text-center group"
+      >
+        <div
+          class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2"
+        >
+          <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">
+            {{ achievement.number }}
+          </div>
+          <div class="text-lg font-semibold text-gray-900 mb-2">
+            {{ achievement.label }}
+          </div>
+          <div class="text-sm text-gray-600">
+            {{ achievement.description }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quality Policies -->
+<section class="section-padding bg-white">
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Nuestras <span class="gradient-text">Políticas de Calidad</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Principios fundamentales que guían nuestro compromiso con la excelencia
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div
+        *ngFor="let policy of qualityPolicies; trackBy: trackByPolicy"
+        class="card card-hover group"
+      >
+        <div class="flex items-start space-x-4">
+          <div
+            class="flex-shrink-0 p-3 bg-primary-100 rounded-lg group-hover:bg-primary-500 transition-colors duration-300"
+          >
+            <lucide-angular
+              [img]="policy.icon"
+              class="w-6 h-6 text-primary-600 group-hover:text-white transition-colors duration-300"
+            >
+            </lucide-angular>
+          </div>
+          <div>
+            <h3
+              class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors"
+            >
+              {{ policy.title }}
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              {{ policy.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Values -->
+<section class="section-padding gradient-primary relative overflow-hidden">
+  <div class="absolute inset-0 bg-black/10"></div>
+  <div class="container-custom relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Nuestros Valores
+      </h2>
+      <p class="text-xl text-white/90 max-w-3xl mx-auto">
+        Los principios que definen nuestra cultura organizacional y guían
+        nuestras decisiones
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div
+        *ngFor="let value of teamValues; trackBy: trackByValue"
+        class="glass text-center p-6 rounded-xl hover:bg-white/30 transition-all duration-300 group"
+      >
+        <div
+          class="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300"
+        >
+          <lucide-angular [img]="value.icon" class="w-8 h-8 text-white">
+          </lucide-angular>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3">{{ value.title }}</h3>
+        <p class="text-white/90 leading-relaxed">{{ value.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Standards & Certifications -->
+<section class="section-padding bg-gray-50">
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Estándares y <span class="gradient-text">Certificaciones</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Trabajamos bajo los más rigurosos estándares internacionales de calidad
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card card-hover text-center">
+        <div
+          class="inline-flex items-center justify-center w-20 h-20 bg-primary-100 rounded-2xl mb-6 mx-auto"
+        >
+          <span class="text-2xl font-bold text-primary-600">IEEE</span>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">IEEE 730</h3>
+        <p class="text-gray-600">
+          Estándar para planes de aseguramiento de calidad del software
+        </p>
+      </div>
+
+      <div class="card card-hover text-center">
+        <div
+          class="inline-flex items-center justify-center w-20 h-20 bg-accent-100 rounded-2xl mb-6 mx-auto"
+        >
+          <span class="text-2xl font-bold text-accent-600">ISO</span>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">ISO 9001</h3>
+        <p class="text-gray-600">
+          Sistema de gestión de calidad reconocido internacionalmente
+        </p>
+      </div>
+
+      <div class="card card-hover text-center">
+        <div
+          class="inline-flex items-center justify-center w-20 h-20 bg-primary-100 rounded-2xl mb-6 mx-auto"
+        >
+          <span class="text-xl font-bold text-primary-600">25010</span>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">ISO/IEC 25010</h3>
+        <p class="text-gray-600">
+          Modelo de calidad de sistemas y productos de software
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-white">
+  <div class="container-custom">
+    <div
+      class="text-center bg-gradient-to-r from-primary-500 to-accent-500 rounded-3xl p-12 text-white"
+    >
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        ¿Quieres formar parte de nuestro equipo?
+      </h2>
+      <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+        Únete a iNeon y contribuye a crear soluciones de software excepcionales
+        que marquen la diferencia
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button
+          routerLink="/contact"
+          class="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium transition-colors duration-300"
+        >
+          Contáctanos
+        </button>
+        <button
+          routerLink="/services"
+          class="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-colors duration-300"
+        >
+          Ver Servicios
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

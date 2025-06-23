@@ -1,0 +1,326 @@
+<!-- Hero Section -->
+<section
+  class="relative bg-gradient-to-br from-primary-50 via-white to-accent-50 section-padding"
+>
+  <div class="container-custom">
+    <div class="text-center max-w-4xl mx-auto">
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-slide-up"
+      >
+        Nuestros <span class="gradient-text">Servicios</span>
+      </h1>
+      <p
+        class="text-xl md:text-2xl text-gray-600 mb-8 animate-slide-up animation-delay-300"
+      >
+        Soluciones de software de alta calidad con estándares internacionales
+      </p>
+      <p
+        class="text-lg text-gray-700 leading-relaxed animate-slide-up animation-delay-600"
+      >
+        Ofrecemos una gama completa de servicios de desarrollo de software,
+        desde la consultoría inicial hasta el soporte continuo, siempre bajo los
+        más rigurosos estándares de calidad.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Main Services -->
+<section class="section-padding bg-white">
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Servicios <span class="gradient-text">Principales</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Desarrollamos soluciones personalizadas que impulsan tu negocio hacia el
+        éxito
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div
+        *ngFor="let service of mainServices; trackBy: trackByService"
+        class="service-card group"
+        [class.primary-card]="service.color === 'primary'"
+        [class.accent-card]="service.color === 'accent'"
+      >
+        <div class="card p-8 h-full relative overflow-hidden">
+          <!-- Background Pattern -->
+          <div
+            class="absolute top-0 right-0 w-32 h-32 opacity-5 transform translate-x-8 -translate-y-8"
+          >
+            <lucide-angular
+              [img]="service.icon"
+              class="w-full h-full"
+            ></lucide-angular>
+          </div>
+
+          <!-- Header -->
+          <div class="relative z-10">
+            <div class="flex items-center mb-6">
+              <div
+                [class]="
+                  'p-4 rounded-2xl mr-4 ' +
+                  (service.color === 'primary'
+                    ? 'bg-primary-100'
+                    : 'bg-accent-100')
+                "
+              >
+                <lucide-angular
+                  [img]="service.icon"
+                  [class]="
+                    'w-8 h-8 ' +
+                    (service.color === 'primary'
+                      ? 'text-primary-600'
+                      : 'text-accent-600')
+                  "
+                >
+                </lucide-angular>
+              </div>
+              <div>
+                <h3
+                  class="text-2xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors"
+                >
+                  {{ service.title }}
+                </h3>
+                <div
+                  class="flex items-center space-x-4 text-sm text-gray-500 mt-1"
+                >
+                  <span class="flex items-center">
+                    <lucide-angular
+                      [img]="clockIcon"
+                      class="w-4 h-4 mr-1"
+                    ></lucide-angular>
+                    {{ service.duration }}
+                  </span>
+                  <span>{{ service.price }}</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              {{ service.description }}
+            </p>
+
+            <!-- Features -->
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3">Incluye:</h4>
+              <ul class="space-y-2">
+                <li
+                  *ngFor="let feature of service.features"
+                  class="flex items-center text-gray-700"
+                >
+                  <lucide-angular
+                    [img]="checkCircleIcon"
+                    class="w-4 h-4 text-green-500 mr-3 flex-shrink-0"
+                  ></lucide-angular>
+                  {{ feature }}
+                </li>
+              </ul>
+            </div>
+
+            <!-- Technologies -->
+            <div class="mb-8">
+              <h4 class="font-semibold text-gray-900 mb-3">Tecnologías:</h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  *ngFor="let tech of service.technologies"
+                  class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-primary-100 hover:text-primary-700 transition-colors"
+                >
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
+
+            <!-- CTA Button -->
+            <button
+              (click)="requestQuote(service.id)"
+              [class]="
+                'w-full group flex items-center justify-center space-x-2 transition-all duration-300 ' +
+                (service.color === 'primary' ? 'btn-primary' : 'btn-accent')
+              "
+            >
+              <span>Solicitar Cotización</span>
+              <lucide-angular
+                [img]="arrowRightIcon"
+                class="w-5 h-5 transition-transform group-hover:translate-x-1"
+              ></lucide-angular>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section class="section-padding bg-gray-50">
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Nuestro <span class="gradient-text">Proceso</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Metodología probada que garantiza resultados excepcionales en cada
+        proyecto
+      </p>
+    </div>
+
+    <div class="relative">
+      <!-- Process Timeline -->
+      <div
+        class="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-accent-500 transform -translate-y-1/2"
+      ></div>
+
+      <div class="grid lg:grid-cols-5 gap-8">
+        <div
+          *ngFor="let step of processSteps; trackBy: trackByStep; let i = index"
+          class="text-center relative"
+        >
+          <!-- Step Circle -->
+          <div
+            class="relative z-10 inline-flex items-center justify-center w-20 h-20 bg-white border-4 border-primary-500 rounded-full mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
+          >
+            <div class="text-center">
+              <div class="text-sm font-bold text-primary-600 mb-1">
+                {{ step.step }}
+              </div>
+              <lucide-angular
+                [img]="step.icon"
+                class="w-6 h-6 text-primary-600 mx-auto"
+              ></lucide-angular>
+            </div>
+          </div>
+
+          <!-- Step Content -->
+          <div class="px-4">
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              {{ step.title }}
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              {{ step.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional Services -->
+<section class="section-padding bg-white">
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Servicios <span class="gradient-text">Complementarios</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Servicios adicionales que complementan perfectamente nuestras soluciones
+        principales
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div
+        *ngFor="let service of additionalServices; trackBy: trackByService"
+        class="card card-hover p-6 border-l-4 border-primary-500"
+      >
+        <div class="flex items-center mb-4">
+          <div class="p-3 bg-primary-100 rounded-lg mr-4">
+            <lucide-angular
+              [img]="service.icon"
+              class="w-6 h-6 text-primary-600"
+            ></lucide-angular>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">
+            {{ service.title }}
+          </h3>
+        </div>
+
+        <p class="text-gray-700 mb-4">{{ service.description }}</p>
+
+        <div class="space-y-2">
+          <div
+            *ngFor="let include of service.includes"
+            class="flex items-center text-sm text-gray-600"
+          >
+            <lucide-angular
+              [img]="checkCircleIcon"
+              class="w-4 h-4 text-green-500 mr-2"
+            ></lucide-angular>
+            {{ include }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="section-padding gradient-primary relative overflow-hidden">
+  <div class="absolute inset-0 bg-black/10"></div>
+  <div class="container-custom relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        ¿Por qué elegir iNeon?
+      </h2>
+      <p class="text-xl text-white/90 max-w-3xl mx-auto">
+        Nuestro compromiso con la calidad y la excelencia nos distingue en el
+        mercado
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div
+        *ngFor="let reason of whyChooseUs; trackBy: trackByService"
+        class="glass text-center p-6 rounded-xl hover:bg-white/30 transition-all duration-300"
+      >
+        <div
+          class="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl mb-6 hover:scale-110 transition-transform duration-300"
+        >
+          <lucide-angular
+            [img]="reason.icon"
+            class="w-8 h-8 text-white"
+          ></lucide-angular>
+        </div>
+
+        <h3 class="text-xl font-semibold text-white mb-3">
+          {{ reason.title }}
+        </h3>
+        <p class="text-white/90 leading-relaxed">{{ reason.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-white">
+  <div class="container-custom">
+    <div
+      class="text-center bg-gradient-to-r from-primary-500 to-accent-500 rounded-3xl p-12 text-white"
+    >
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        ¿Listo para comenzar tu proyecto?
+      </h2>
+      <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+        Contáctanos hoy y obtén una cotización personalizada para tu solución de
+        software
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button
+          (click)="navigateToContact()"
+          class="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium transition-colors duration-300"
+        >
+          Contactar Ahora
+        </button>
+        <button
+          routerLink="/about"
+          class="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-colors duration-300"
+        >
+          Conocer Más
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
